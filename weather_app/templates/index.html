@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modern Weather App</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <form method = "POST">
+    {% csrf_token %}
+    <div class="weather-container">
+        <div class="search-box">
+            <input type="text" id="city" name="city"placeholder="Enter city name...">
+            <button type="submit">Search</button>
+        </div>
+         <div class="weather-box" id="weather-box">
+            <h2>{{temp}}</h2>
+            <h2>{{city}}</h2>
+            <p>{{ day }}</p>
+         </div>
+            
+            <div class="weather-details">
+                <div class="detail-card">
+                    {{description}}
+                </div>
+                <div class="detail-card">
+                    <p>
+                        <img src="https://openweathermap.org/img/wn/{{ icon }}@2x.png" alt="Weather Icon">
+                    </p>
+                </div>
+            </div>
+        </div>
+         
+    </div>
+
+    <script src="script.js"></script>
+</form>
+</body>
+</html>
